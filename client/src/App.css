@@ -1,0 +1,125 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.App-header h1 {
+  margin: 0 0 0.5rem 0;
+}
+
+.connection-status {
+  font-size: 0.9rem;
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.message {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  max-width: 80%;
+  word-break: break-word;
+}
+
+.message.client {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+}
+
+.message.server {
+  background-color: #f1f0f0;
+}
+
+.message.system {
+  background-color: #e3f2fd;
+  align-self: center;
+  font-style: italic;
+}
+
+.sender {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.message-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.message-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.message-form button {
+  padding: 0.5rem 1rem;
+  background-color: #0095ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.message-form button:hover {
+  background-color: #0077cc;
+}
+
+.message-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
