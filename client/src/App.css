@@ -24,6 +24,7 @@
   align-items: center;
   justify-content: center;
   color: white;
+  position: relative;
 }
 
 .App-header h1 {
@@ -34,67 +35,521 @@
   font-size: 0.9rem;
 }
 
+/* User section in header */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.logout-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Authentication styles */
+.auth-container {
+  max-width: 450px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.auth-container h2 {
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.auth-form button {
+  padding: 0.75rem;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.auth-form button:hover {
+  background-color: #3367d6;
+}
+
+.auth-switch {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.auth-switch button {
+  background: none;
+  border: none;
+  color: #4285f4;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+/* Create room button */
+.create-room-toggle {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 1rem 0;
+  transition: background-color 0.2s;
+}
+
+.create-room-toggle:hover {
+  background-color: #388e3c;
+}
+
+/* Create room form */
+.create-room-form {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-room-form h3 {
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.create-room-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.create-room-form input, 
+.create-room-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.create-room-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.create-room-form button {
+  padding: 0.75rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.create-room-form button:hover:not(:disabled) {
+  background-color: #388e3c;
+}
+
+.create-room-form button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* User's chatrooms section */
+.my-chatrooms-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 1rem 0 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.my-chatrooms-section h3 {
+  color: #1976d2;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+/* Join screen styles */
+.join-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.join-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 1.5rem;
+}
+
+.join-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.join-form button {
+  padding: 0.75rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.join-form button:hover {
+  background-color: #388e3c;
+}
+
+.join-form button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* Join chat button */
+.join-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.join-btn:hover:not(:disabled) {
+  background-color: #1976d2;
+  transform: translateY(-2px);
+}
+
+.join-btn:disabled {
+  background-color: #bbdefb;
+  cursor: not-allowed;
+}
+
+/* Chatroom selection styles */
+.chatroom-selector {
+  width: 100%;
+  max-width: 900px;
+  margin: 1rem 0;
+}
+
+.chatroom-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.chatroom-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 160px;
+}
+
+.chatroom-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.chatroom-card.selected {
+  border-color: #4caf50;
+  background-color: #f0f9f0;
+}
+
+.chatroom-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.chatroom-card p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.chatroom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: auto;
+}
+
+.loading, .no-rooms {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.no-rooms button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selected-room-info {
+  background-color: #e8f5e9;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  max-width: 600px;
+  width: 100%;
+}
+
+.selected-room-info h3 {
+  margin-top: 0;
+  color: #2e7d32;
+}
+
+.selected-room-info p {
+  margin-bottom: 0;
+  color: #555;
+}
+
+/* Chat container layout */
 .chat-container {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  height: calc(100vh - 90px);
+  overflow: hidden;
+}
+
+/* Sidebar styles */
+.chat-sidebar {
+  width: 250px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
+  overflow-y: auto;
+}
+
+.chat-sidebar h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.room-header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.room-header h3 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.room-header p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.leave-btn {
+  padding: 0.4rem 0.8rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+}
+
+.leave-btn:hover {
+  background-color: #d32f2f;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eeeeee;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+/* Main chat area */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .message-list {
   flex: 1;
   overflow-y: auto;
-  margin-bottom: 1rem;
   padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
 }
 
+/* Message styling */
 .message {
   margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-  max-width: 80%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  max-width: 70%;
   word-break: break-word;
+  position: relative;
 }
 
-.message.client {
+.message.chat {
+  background-color: #f1f0f0;
+}
+
+.message.chat.own {
   align-self: flex-end;
   background-color: #dcf8c6;
-}
-
-.message.server {
-  background-color: #f1f0f0;
+  text-align: right;
 }
 
 .message.system {
   background-color: #e3f2fd;
   align-self: center;
   font-style: italic;
+  font-size: 0.9rem;
+  color: #555;
+  max-width: 90%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.sender {
+.message .sender {
   font-weight: bold;
   margin-right: 0.5rem;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  color: #555;
 }
 
+.message.own .sender {
+  color: #388e3c;
+}
+
+.message .text {
+  line-height: 1.4;
+}
+
+/* Message form */
 .message-form {
   display: flex;
   gap: 0.5rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-top: 1px solid #e0e0e0;
 }
 
 .message-form input {
   flex: 1;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem;
 }
 
 .message-form button {
@@ -104,6 +559,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .message-form button:hover {
@@ -113,6 +569,37 @@
 .message-form button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .chat-container {
+    flex-direction: column;
+  }
+  
+  .chat-sidebar {
+    width: 100%;
+    height: 150px;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .message {
+    max-width: 85%;
+  }
+  
+  .chatroom-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .auth-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .join-container {
+    padding: 1rem;
+  }
 }
 
 @keyframes App-logo-spin {
