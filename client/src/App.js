@@ -132,12 +132,18 @@ function App() {
   const fetchChatrooms = async () => {
     setLoadingRooms(true);
     try {
-      const response = await fetch('http://localhost:8080/api/chatrooms');
+        const token = localStorage.getItem('chatToken');
+      if (!token) return;
+      const response = await fetch('http://localhost:8080/api/chatrooms', {
+        headers: {
+          'Authorization': token
+        }
+      });
       if (!response.ok) {
         throw new Error('Failed to fetch chatrooms');
       }
       const data = await response.json();
-      setAllChatrooms(data);
+      setAllChatrooms(data.chatrooms);
     } catch (error) {
       console.error('Error fetching chatrooms:', error);
       setMessages(prev => [...prev, {
@@ -220,7 +226,7 @@ function App() {
     setLoginError('');
     
     try {
-      const response = await fetch('http://localhost:8080/api/login', {
+      const response = await fetch('http://localhost:8080/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -238,7 +244,7 @@ function App() {
       }
       
       // Save auth data
-      localStorage.setItem('chatToken', data.token);
+      localStorage.setItem('chatToken', data.session_token);
       localStorage.setItem('chatUsername', data.username);
       localStorage.setItem('chatUserId', data.userId);
       
